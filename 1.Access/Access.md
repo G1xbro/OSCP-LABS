@@ -314,4 +314,4 @@ C://Windows NT SERVICE\TrustedInstaller:(F)
             APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
 ```
 - Now we go to Administrator's Desktop and grab the flag
-#### Privelate Escalating to System
+#### Privelage Escalating to System
