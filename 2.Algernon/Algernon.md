@@ -1,4 +1,4 @@
-# Algernon.md
+# Algernon Lab
 ## Reconnaissance
 ### port scanning
 - `nmap -p- -T4 -sS -min-rate 1000 192.168.116.65`

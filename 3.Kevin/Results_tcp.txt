@@ -1,0 +1,19 @@
+# Nmap 7.99 scan initiated Sun Jul 26 11:37:37 2026 as: /usr/lib/nmap/nmap --privileged -p- -T4 -sS --min-rate 1000 -oN Results_tcp.txt 192.168.102.45
+Nmap scan report for 192.168.102.45
+Host is up (0.12s latency).
+Not shown: 65523 closed tcp ports (reset)
+PORT      STATE SERVICE
+80/tcp    open  http
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+3389/tcp  open  ms-wbt-server
+3573/tcp  open  tag-ups-1
+49152/tcp open  unknown
+49153/tcp open  unknown
+49154/tcp open  unknown
+49155/tcp open  unknown
+49158/tcp open  unknown
+49160/tcp open  unknown
+
+# Nmap done at Sun Jul 26 11:38:45 2026 -- 1 IP address (1 host up) scanned in 68.15 seconds
