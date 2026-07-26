@@ -154,3 +154,18 @@
 ## Exploitation
 ### Web
 We got in using default username and password = **'admin'**
+
+```
+    searchsploit HP power manager
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+    Exploit Title                                                                                                                                                                 |  Path
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+    Flying Dog Software Powerslave 4.3 Portalmanager - 'sql_id' Information Disclosure                                                                                             | php/webapps/23163.txt
+    Hewlett-Packard (HP) Power Manager Administration - Remote Buffer Overflow (Metasploit)                                                                                        | windows/remote/16785.rb
+    Hewlett-Packard (HP) Power Manager Administration Power Manager Administration - Universal Buffer Overflow                                                                     | windows/remote/10099.py
+    HP Power Manager - 'formExportDataLogs' Remote Buffer Overflow (Metasploit)                                                                                                    | cgi/remote/18015.rb
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+    Shellcodes: No Results
+```
+
+`searchsploit -m  windows/remote/10099.py`
