@@ -169,3 +169,5 @@ We got in using default username and password = **'admin'**
 ```
 
 `searchsploit -m  windows/remote/10099.py`
+[Exlpoit](/3.Kevin/sources/exploit.py)
+
