@@ -314,3 +314,5 @@ C://Windows NT SERVICE\TrustedInstaller:(F)
 ```
 - Now we go to Administrator's Desktop and grab the flag
 #### Privelage Escalating to System
+
+# SOLVED!

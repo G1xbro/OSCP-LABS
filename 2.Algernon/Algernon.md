@@ -126,3 +126,5 @@ PS C:\Windows\system32> whoami
 nt authority\system
 PS C:\Windows\system32>
 ```
+
+#SOLVED!
