@@ -86,7 +86,7 @@
 
 ## Exploitation
 ![Website](/2.Algernon/images/smartermail.png)
-- As SQL injection was not possible in Admin portal.
+- As basic SQL injection was not possible in Admin portal.
 <br>![Adminportal](/2.Algernon/images/Admin_portal.png) 
 
 ```text

