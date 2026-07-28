@@ -76,7 +76,7 @@
 #### UDP Ports
 - `nmap -sU -A --top-ports 20 192.168.225.187`<br>![Scan](/1.Access/images/All_port_scan.png)
 
-### Web Scanning
+### Web
 > we will first visit the website via `https://192.168.225.187/` and look for some impotant details.
 
 ![Webpage](/1.Access/images/web_page.png)<br>

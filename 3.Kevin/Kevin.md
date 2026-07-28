@@ -151,10 +151,11 @@
     OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
     Nmap done: 1 IP address (1 host up) scanned in 156.96 seconds
 ```
-## Exploitation
 ### Web
+![Image](/3.Kevin/images/website.png)
 We got in using default username and password = **'admin'**
-
+![Image_version](/3.Kevin/images/version.png)
+## Exploitation
 ```sh
     searchsploit HP power manager
     ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
@@ -257,4 +258,4 @@ whoami
 nt authority\system
 ```
 
-#SOLVED!
+# SOLVED!
