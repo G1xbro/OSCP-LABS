@@ -1,0 +1,35 @@
+# Nmap 7.99 scan initiated Tue Sep  1 13:14:27 2026 as: /usr/lib/nmap/nmap --privileged -sU -A --top-ports 20 -oN Results_udp.txt 192.168.246.127
+Nmap scan report for 192.168.246.127
+Host is up (0.12s latency).
+
+PORT      STATE         SERVICE      VERSION
+53/udp    closed        domain
+67/udp    open|filtered dhcps
+68/udp    closed        dhcpc
+69/udp    closed        tftp
+123/udp   open|filtered ntp
+135/udp   open|filtered msrpc
+137/udp   open|filtered netbios-ns
+138/udp   open|filtered netbios-dgm
+139/udp   closed        netbios-ssn
+161/udp   open|filtered snmp
+162/udp   open|filtered snmptrap
+445/udp   closed        microsoft-ds
+500/udp   open|filtered isakmp
+514/udp   closed        syslog
+520/udp   closed        route
+631/udp   open|filtered ipp
+1434/udp  closed        ms-sql-m
+1900/udp  open|filtered upnp
+4500/udp  open|filtered nat-t-ike
+49152/udp open|filtered unknown
+Too many fingerprints match this host to give specific OS details
+Network Distance: 11 hops
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT       ADDRESS
+1   ... 10
+11  133.07 ms 192.168.246.127
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Sep  1 13:18:20 2026 -- 1 IP address (1 host up) scanned in 233.38 seconds

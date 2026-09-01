@@ -1,0 +1,25 @@
+# Nmap 7.99 scan initiated Tue Sep  1 13:10:56 2026 as: /usr/lib/nmap/nmap --privileged -p- -T4 -sS --min-rate 1000 -oN Results_tcp.txt 192.168.246.127
+Warning: 192.168.246.127 giving up on port because retransmission cap hit (6).
+Nmap scan report for 192.168.246.127
+Host is up (0.079s latency).
+Not shown: 64493 closed tcp ports (reset), 1025 filtered tcp ports (no-response)
+PORT      STATE SERVICE
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+3306/tcp  open  mysql
+5040/tcp  open  unknown
+8000/tcp  open  http-alt
+30021/tcp open  unknown
+33033/tcp open  unknown
+44330/tcp open  unknown
+45332/tcp open  unknown
+45443/tcp open  unknown
+49664/tcp open  unknown
+49665/tcp open  unknown
+49666/tcp open  unknown
+49667/tcp open  unknown
+49668/tcp open  unknown
+49669/tcp open  unknown
+
+# Nmap done at Tue Sep  1 13:12:20 2026 -- 1 IP address (1 host up) scanned in 84.11 seconds
