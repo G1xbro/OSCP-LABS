@@ -1,0 +1,40 @@
+# Nmap 7.99 scan initiated Wed Sep  2 20:37:48 2026 as: /usr/lib/nmap/nmap --privileged -sU -A --top-ports 20 -oN Results_udp.txt 192.168.149.66
+Nmap scan report for 192.168.149.66
+Host is up (0.12s latency).
+
+PORT      STATE         SERVICE      VERSION
+53/udp    closed        domain
+67/udp    closed        dhcps
+68/udp    closed        dhcpc
+69/udp    closed        tftp
+123/udp   open|filtered ntp
+135/udp   closed        msrpc
+137/udp   open|filtered netbios-ns
+138/udp   open|filtered netbios-dgm
+139/udp   closed        netbios-ssn
+161/udp   closed        snmp
+162/udp   open|filtered snmptrap
+445/udp   closed        microsoft-ds
+500/udp   open|filtered isakmp
+514/udp   closed        syslog
+520/udp   open|filtered route
+631/udp   closed        ipp
+1434/udp  open|filtered ms-sql-m
+1900/udp  open|filtered upnp
+4500/udp  open|filtered nat-t-ike
+49152/udp closed        unknown
+Device type: general purpose
+Running: Microsoft Windows 2008|2012|7|8.1|Vista, Novell NetWare 6.X
+OS CPE: cpe:/o:microsoft:windows_server_2008:r2 cpe:/o:microsoft:windows_server_2012 cpe:/o:microsoft:windows_7 cpe:/o:microsoft:windows_8.1 cpe:/o:microsoft:windows_vista cpe:/o:novell:netware:6
+Too many fingerprints match this host to give specific OS details
+Network Distance: 4 hops
+
+TRACEROUTE (using port 443/tcp)
+HOP RTT       ADDRESS
+1   162.46 ms 192.168.45.1
+2   162.36 ms 192.168.45.254
+3   162.48 ms 192.168.251.1
+4   96.44 ms  192.168.149.66
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Sep  2 20:40:51 2026 -- 1 IP address (1 host up) scanned in 183.21 seconds
