@@ -1,0 +1,73 @@
+# Nmap 7.99 scan initiated Wed Sep  2 12:56:08 2026 as: /usr/lib/nmap/nmap --privileged -A -p 53,135,139,445,3389,5357,49152,49153,49154,49155,49156,49157,49158 -oN targeted_services.txt 192.168.149.40
+Nmap scan report for 192.168.149.40
+Host is up (0.13s latency).
+
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Microsoft DNS 6.0.6001 (17714650) (Windows Server 2008 SP1)
+| dns-nsid: 
+|_  bind.version: Microsoft DNS 6.0.6001 (17714650)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds  Windows Server (R) 2008 Standard 6001 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)
+3389/tcp  open  ms-wbt-server Microsoft Terminal Service
+| rdp-ntlm-info: 
+|   Target_Name: INTERNAL
+|   NetBIOS_Domain_Name: INTERNAL
+|   NetBIOS_Computer_Name: INTERNAL
+|   DNS_Domain_Name: internal
+|   DNS_Computer_Name: internal
+|   Product_Version: 6.0.6001
+|_  System_Time: 2026-09-02T07:27:15+00:00
+|_ssl-date: 2026-09-02T07:27:23+00:00; 0s from scanner time.
+| ssl-cert: Subject: commonName=internal
+| Not valid before: 2025-01-05T19:52:51
+|_Not valid after:  2025-07-07T19:52:51
+5357/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Service Unavailable
+|_http-server-header: Microsoft-HTTPAPI/2.0
+49152/tcp open  msrpc         Microsoft Windows RPC
+49153/tcp open  msrpc         Microsoft Windows RPC
+49154/tcp open  msrpc         Microsoft Windows RPC
+49155/tcp open  msrpc         Microsoft Windows RPC
+49156/tcp open  msrpc         Microsoft Windows RPC
+49157/tcp open  msrpc         Microsoft Windows RPC
+49158/tcp open  msrpc         Microsoft Windows RPC
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows 7|2008|8.1
+OS CPE: cpe:/o:microsoft:windows_7 cpe:/o:microsoft:windows_server_2008:r2 cpe:/o:microsoft:windows_8.1
+OS details: Microsoft Windows 7 SP1 or Windows Server 2008 R2 or Windows 8.1
+Network Distance: 4 hops
+Service Info: Host: INTERNAL; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008::sp1, cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_server_2008:r2
+
+Host script results:
+| smb-os-discovery: 
+|   OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)
+|   OS CPE: cpe:/o:microsoft:windows_server_2008::sp1
+|   Computer name: internal
+|   NetBIOS computer name: INTERNAL\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2026-09-02T00:27:15-07:00
+|_nbstat: NetBIOS name: INTERNAL, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:ab:5c:17 (VMware)
+| smb2-security-mode: 
+|   2.0.2: 
+|_    Message signing enabled but not required
+|_clock-skew: mean: 1h24m00s, deviation: 3h07m50s, median: 0s
+| smb2-time: 
+|   date: 2026-09-02T07:27:15
+|_  start_date: 2025-02-20T21:30:47
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+
+TRACEROUTE (using port 443/tcp)
+HOP RTT       ADDRESS
+1   185.64 ms 192.168.45.1
+2   185.57 ms 192.168.45.254
+3   185.66 ms 192.168.251.1
+4   185.79 ms 192.168.149.40
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Sep  2 12:57:23 2026 -- 1 IP address (1 host up) scanned in 75.28 seconds

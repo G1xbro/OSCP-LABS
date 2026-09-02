@@ -1,0 +1,50 @@
+# Nmap 7.99 scan initiated Wed Sep  2 12:57:49 2026 as: /usr/lib/nmap/nmap --privileged -sU -A --top-ports 20 -oN Results_udp.txt 192.168.149.40
+Nmap scan report for 192.168.149.40
+Host is up (0.14s latency).
+
+PORT      STATE         SERVICE      VERSION
+53/udp    open          domain       Microsoft DNS 6.0.6001 (17714650) (Windows Server 2008 SP1)
+| dns-nsid: 
+|_  bind.version: Microsoft DNS 6.0.6001 (17714650)
+67/udp    open|filtered dhcps
+68/udp    open|filtered dhcpc
+69/udp    closed        tftp
+123/udp   open|filtered ntp
+135/udp   closed        msrpc
+137/udp   open          netbios-ns   Microsoft Windows netbios-ns (workgroup: WORKGROUP)
+| nbns-interfaces: 
+|   hostname: INTERNAL
+|   interfaces: 
+|_    192.168.149.40
+138/udp   open|filtered netbios-dgm
+139/udp   closed        netbios-ssn
+161/udp   closed        snmp
+162/udp   closed        snmptrap
+445/udp   open|filtered microsoft-ds
+500/udp   open|filtered isakmp
+514/udp   closed        syslog
+520/udp   closed        route
+631/udp   closed        ipp
+1434/udp  closed        ms-sql-m
+1900/udp  open|filtered upnp
+4500/udp  open|filtered nat-t-ike
+49152/udp open|filtered unknown
+Device type: general purpose
+Running: Microsoft Windows 2008|2012|7|8.1|Vista, Novell NetWare 6.X
+OS CPE: cpe:/o:microsoft:windows_server_2008:r2 cpe:/o:microsoft:windows_server_2012 cpe:/o:microsoft:windows_7 cpe:/o:microsoft:windows_8.1 cpe:/o:microsoft:windows_vista cpe:/o:novell:netware:6
+Too many fingerprints match this host to give specific OS details
+Network Distance: 4 hops
+Service Info: Host: INTERNAL; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008::sp1, cpe:/o:microsoft:windows
+
+Host script results:
+|_nbstat: NetBIOS name: INTERNAL, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:ab:5c:17 (VMware)
+
+TRACEROUTE (using port 443/tcp)
+HOP RTT      ADDRESS
+1   83.09 ms 192.168.45.1
+2   82.97 ms 192.168.45.254
+3   83.55 ms 192.168.251.1
+4   83.66 ms 192.168.149.40
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Sep  2 13:00:33 2026 -- 1 IP address (1 host up) scanned in 164.70 seconds

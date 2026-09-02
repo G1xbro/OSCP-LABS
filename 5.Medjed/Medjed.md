@@ -302,8 +302,6 @@ Our second Website shows the details of Medjed website
 Our third and fourth Website both shows a webapplication for quiz
 ![Quiz](/5.Medjed/images/Quiz.png)
 
-#### Sub-Directory Enumeration
-#### Sub-Domain Enumeration
 ## Exploitation
 Let's begin the exploitation phase using Barracuda's upload functionality and posting [Reverse_shell](/5.Medjed/sources/php-reverse-shell.php)
 ```
