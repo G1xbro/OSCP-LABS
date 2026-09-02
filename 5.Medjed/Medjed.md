@@ -290,10 +290,8 @@ after traversing we found out user flag and admnistrator flag
 ![User_flag](/5.Medjed\images\Jerren.png)<br>
 ![Admin_flag](/5.Medjed\images\Administrator.png)
 
-we also found passwords stored in XAMPP and found Mysqls password
+we also found passwords stored in XAMPP and found Mysqls password<br>
 ![Password](/5.Medjed/images/Xampp_passwords.png)
-
-> a5e8194315a1e6e8458b9925b3b7e49b
 
 2. `http://192.168.149.127:33033/`
 Our second Website shows the details of Medjed website
