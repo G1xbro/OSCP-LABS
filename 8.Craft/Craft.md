@@ -13,7 +13,7 @@ PORT   STATE SERVICE
 
 Nmap done: 1 IP address (1 host up) scanned in 93.71 seconds
 ```
-With this we can conclude that there is only 1 port open which is showing us a web page
+With this we can conclude that there is only 1 port open which is showing us a web page.
 * `nmap -A -p- -Pn 192.168.234.169`
 ```sh
 nmap -A -p- -Pn 192.168.234.169

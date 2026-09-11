@@ -143,7 +143,7 @@
 ## Exploitation
 ### File upload vulnerability
 - We will use file upload vulnerability using buy tickets file upload vector, and upload php reverseshell payload. [**Php_reverse_shell**](/OSCP-LABS/1.Access/www_webshell.php)
-- But this type of file is not allowed for uploading into website.![not_allowed](/OSCP-LABS/1.Access/images/not_allowed.png)
+- But this type of file is not allowed for uploading into website.<br>![not_allowed](./images/not_allowed.png)
 - So, we will try to upload `.htaccess` file to change the servers configuration such that it will read `.` files as `PHP`. As, Apache files uses `.htaccess`
 - We will use this payload inside .htaccess file `AddType application/x-httpd-php .evil` and rename the reverse shell payload to `www_webshell.evil`.
 - Upload Both files to website using Buy Tickets.
