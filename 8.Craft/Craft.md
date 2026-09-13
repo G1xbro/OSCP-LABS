@@ -105,7 +105,44 @@ Finished
 ![uploads](./images/OS.png)<br>
 ![noupload](./images/noupload.png)<br>
 * This tells us we can only upload ODT file format.
-
 ## Exploitation
+* Let's start by creating a `.odt` file, and then add macro which will help us execute a reverse shell and gain foothold into the machine, using `Shell` command.
+    ```powershell
+    
+    ```
+* ![file_sent](./images/Macro_create.png)
+* ![libre_macro]()
+
+
+```powershell
+C:\Program Files\LibreOffice\program
+whoami
+craft\thecybergeek
+cd /
+pwd
+C:\
+cd users
+dir
+Administrator apache Public thecybergeek
+cd thecybergeek
+dir
+Desktop Documents Downloads Favorites Links Music Pictures Saved Games Videos
+cd desktop
+dir
+local.txt
+```
+* We found User Flag.
 ### Privilege Escalation
+* There is a user called Apache which is new and we don't have any permission to create files using user `thecybergeek`.
+```
+net users
+ User accounts for \\CRAFT  ------------------------------------------------------------------------------- Administrator            apache                   DefaultAccount            Guest                    thecybergeek             WDAGUtilityAccount        The command completed successfully.
+```
+
+* Using `iwr` (invoke web request) we uploaded our [php_backdoor_file](./sources/simple-backdoor.php). to `C:\xampp\htdocs`.
+* We laterally privellage escalated to user `Apache`.<br>
+![Whoami](./images/whoami.png)<br>
+![who](./images/apache.png)<br>
+![Permissions_apache](./images/apace_permissions.png)
+
 # SOVLED!
